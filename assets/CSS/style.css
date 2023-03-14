@@ -11,9 +11,6 @@ body>div {
 
 /* Start Header */
 
-/*.header {
-    text-align: center;
-}*/
 
 /* End Header */
 
@@ -50,8 +47,29 @@ body>div {
     border: solid black 2px;
 }
 
+.mole {
+    background-color: yellow;
+}
+
 /* End Mole-area */
 
 /* Start Control-area */
+
+.control-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button {
+    width: 250px;
+    height: 100px;
+    margin: 10px 0px;
+}
+
+.hidden-spacer {
+    width: 250px;
+    height: 100px;
+}
 
 /* End Control-area */
