@@ -4,6 +4,17 @@
 
 /* Start Game-info */
 
+.game-info {
+    width: 750px;
+    height: 100px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    border: solid black 2px;
+}
+
 /* End Game-info */
 
 /* Start Mole-area */
