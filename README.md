@@ -81,7 +81,7 @@ The images used are all taken from [Pexels](https://www.pexels.com/sv-se/) which
 
 #### Wireframes
 To create the general idea of the site [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
-![Wireframes]()
+![Wireframes](assets/images/readme-images/wireframe.JPG)
 
 ## Features
 
