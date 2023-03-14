@@ -1,0 +1,31 @@
+/* Start Header */
+
+/* End Header */
+
+/* Start Game-info */
+
+/* End Game-info */
+
+/* Start Mole-area */
+
+.mole-area {
+    width: 750px;
+    height: 750px;
+    background-color: bisque;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 250px;
+    height: 250px;
+    box-sizing: border-box;
+    background-color: blueviolet;
+    border: solid black 2px;
+}
+
+/* End Mole-area */
+
+/* Start Control-area */
+
+/* End Control-area */
