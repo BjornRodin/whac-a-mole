@@ -1,4 +1,19 @@
+/* Start General styling */
+
+body>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* End General styling */
+
 /* Start Header */
+
+/*.header {
+    text-align: center;
+}*/
 
 /* End Header */
 
