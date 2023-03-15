@@ -17,7 +17,7 @@ body>div {
 /* Start Game-info */
 
 .game-info {
-    width: 750px;
+    width: 600px;
     height: 100px;
     background-color: aqua;
     display: flex;
@@ -32,16 +32,16 @@ body>div {
 /* Start Mole-area */
 
 .mole-area {
-    width: 750px;
-    height: 750px;
+    width: 600px;
+    height: 600px;
     background-color: bisque;
     display: flex;
     flex-wrap: wrap;
 }
 
 .box {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     box-sizing: border-box;
     background-color: blueviolet;
     border: solid black 2px;
@@ -62,13 +62,13 @@ body>div {
 }
 
 .button {
-    width: 250px;
+    width: 200px;
     height: 100px;
     margin: 10px 0px;
 }
 
 .hidden-spacer {
-    width: 250px;
+    width: 200px;
     height: 100px;
 }
 
