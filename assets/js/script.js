@@ -8,8 +8,24 @@ const timeLeft = document.getElementById('time');
 
 // RunGame
 
+function runGame() {
+
+}
+
 // CheckIfHit
+
+function checkIfHit() {
+
+}
 
 // IncrementIfHit
 
+function incrementIfHit() {
+
+}
+
 // IncrementIfMiss
+
+function incrementIfMiss() {
+
+}
