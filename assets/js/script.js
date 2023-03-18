@@ -6,23 +6,26 @@ const hits = document.querySelector('#hit');
 const misses = document.querySelector('#miss');
 const timeLeft = document.querySelector('#time');
 
-/**
- * Telling Javascript we start at 0 hits
- * defining hitmole element
- */
+// Defining variables in the script
 
 let result = 0;
 let miss = 0;
-let hitMole
+let hitMole;
+let gameTime = 10;
+let timerId;
 
 /**
  * First we remove any 'mole' in the grid,
  * then adding it in by choosing a random box to put the mole in,
  * then checking if we hit the random box the mole appear in
  * eventlistener to check for mouseclicks on existing mole and adding to hits
+ * gameTime make the game only run as long as there is still time left
  */
 
 function randomBox() {
+    if (gameTime <= 0) {
+        return;
+    }
     boxes.forEach(box => {
         box.classList.remove('mole');
     });
@@ -32,6 +35,9 @@ function randomBox() {
     hitMole = randomMole.id;
 
     setTimeout(() => {
+        if (gameTime <= 0) {
+            return;
+        }
         if (randomMole.classList.contains('mole')) {
             randomMole.classList.remove('mole')
             hitMole = null;
@@ -40,6 +46,16 @@ function randomBox() {
         }
     }, 2000);
 }
+
+// Display time left to play
+
+let timer = setInterval(() => {
+    gameTime--;
+    timeLeft.textContent = gameTime;
+    if (gameTime <= 0) {
+        clearInterval(timer);
+    }
+}, 1000);
 
 boxes.forEach(box => {
     box.addEventListener('click', () => {
