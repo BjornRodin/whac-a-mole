@@ -1,5 +1,9 @@
 /* Start General styling */
 
+body {
+    background: url(../images/background-field.jpg) no-repeat center center;
+}
+
 body>div {
     display: flex;
     flex-direction: column;
@@ -23,8 +27,6 @@ body>div {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-sizing: border-box;
-    border: solid black 2px;
 }
 
 /* End Game-info */
@@ -34,24 +36,21 @@ body>div {
 .mole-area {
     width: 600px;
     height: 600px;
-    background-color: bisque;
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
-    /*position: relative;*/
 }
 
 .box {
     width: 200px;
     height: 200px;
-    box-sizing: border-box;
     background: url(../images/pileofdirt.png) no-repeat bottom;
-    border: solid black 2px;
     position: relative;
 }
 
 .box::before {
     content: "";
+    /* No content is added but the element still exists in the DOM, needed to add mole background in .box.mole::before */
     position: absolute;
     top: 0;
     left: 0;
@@ -61,7 +60,6 @@ body>div {
 
 .box.mole::before {
     background: url(../images/molefigure.png) no-repeat center;
-    animation-duration: 300ms;
     z-index: -1;
 }
 
