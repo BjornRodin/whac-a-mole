@@ -8,13 +8,19 @@ const timeLeft = document.querySelector('#time');
 const playButton = document.querySelector('#play');
 const howToPlayButton = document.querySelector('#how-to-play');
 const howToPopup = document.querySelector('#how-to-popup');
+const popupClose = document.querySelector('#popup-close');
 
 // Eventlisteners
 
 playButton.addEventListener('click', playGame);
+
 howToPlayButton.addEventListener('click', () => {
     howToPopup.style.display = 'flex';
 });
+
+popupClose.addEventListener('click', () => {
+    howToPopup.style.display = 'none';
+})
 
 // Defining variables in the script
 

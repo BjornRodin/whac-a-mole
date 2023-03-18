@@ -37,6 +37,7 @@ body>div {
     background-color: bisque;
     display: flex;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 
 .box {
