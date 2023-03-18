@@ -20,7 +20,7 @@ function randomBox() {
     })
 
     let randomMole = boxes[Math.floor(Math.random() * 9)]
-    console.log(randomMole)
+    randomMole.classList.add('mole')
 }
 
 randomBox()
