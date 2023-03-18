@@ -72,4 +72,13 @@ body>div {
     height: 100px;
 }
 
+#how-to-popup {
+    position: fixed;
+    display: none;
+}
+
+#popup-content {
+    text-align: center;
+}
+
 /* End Control-area */

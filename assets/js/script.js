@@ -6,7 +6,15 @@ const hits = document.querySelector('#hit');
 const misses = document.querySelector('#miss');
 const timeLeft = document.querySelector('#time');
 const playButton = document.querySelector('#play');
+const howToPlayButton = document.querySelector('#how-to-play');
+const howToPopup = document.querySelector('#how-to-popup');
+
+// Eventlisteners
+
 playButton.addEventListener('click', playGame);
+howToPlayButton.addEventListener('click', () => {
+    howToPopup.style.display = 'flex';
+});
 
 // Defining variables in the script
 
