@@ -12,6 +12,7 @@ const timeLeft = document.querySelector('#time');
  */
 
 let result = 0
+let miss = 0
 let hitMole
 
 /**
@@ -38,6 +39,9 @@ boxes.forEach(box => {
             result++;
             hits.textContent = result;
             hitMole = null;
+        } else {
+            miss++;
+            misses.textContent = miss;
         }
     })
 })
