@@ -6,8 +6,8 @@ const hits = document.querySelector('#hit');
 const misses = document.querySelector('#miss');
 const timeLeft = document.querySelector('#time');
 
-
-
+// Telling javascript that we start at 0 hits
+let result = 0
 
 // RunGame
 
