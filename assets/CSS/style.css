@@ -38,18 +38,31 @@ body>div {
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
+    /*position: relative;*/
 }
 
 .box {
     width: 200px;
     height: 200px;
     box-sizing: border-box;
-    background-color: blueviolet;
+    background: url(../images/pileofdirt.png) no-repeat bottom;
     border: solid black 2px;
+    position: relative;
 }
 
-.mole {
-    background-color: yellow;
+.box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.box.mole::before {
+    background: url(../images/molefigure.png) no-repeat center;
+    animation-duration: 300ms;
+    z-index: -1;
 }
 
 /* End Mole-area */
