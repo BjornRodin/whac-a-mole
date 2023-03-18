@@ -23,10 +23,15 @@ body>div {
 .game-info {
     width: 600px;
     height: 100px;
-    background-color: aqua;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.game-info>p {
+    text-transform: uppercase;
+    font-size: 150%;
+    font-weight: bold;
 }
 
 /* End Game-info */
@@ -39,6 +44,10 @@ body>div {
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
+    background-color: #d9ce3b;
+    padding: 0px 20px 30px;
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 .box {
