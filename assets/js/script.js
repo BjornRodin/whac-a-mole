@@ -1,10 +1,10 @@
 // Getting the constants so we can work on them in the script
 
-const boxes = document.getElementsByClassName('.box');
-const mole = document.getElementsByClassName('.mole');
-const hits = document.getElementById('hit');
-const misses = document.getElementById('miss');
-const timeLeft = document.getElementById('time');
+const boxes = document.querySelectorAll('.box');
+const mole = document.querySelectorAll('.mole');
+const hits = document.querySelectorAll('#hit');
+const misses = document.querySelectorAll('#miss');
+const timeLeft = document.querySelectorAll('#time');
 
 // RunGame
 
