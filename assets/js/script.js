@@ -1,10 +1,13 @@
 // Getting the constants so we can work on them in the script
 
 const boxes = document.querySelectorAll('.box');
-const mole = document.querySelectorAll('.mole');
-const hits = document.querySelectorAll('#hit');
-const misses = document.querySelectorAll('#miss');
-const timeLeft = document.querySelectorAll('#time');
+const mole = document.querySelector('.mole');
+const hits = document.querySelector('#hit');
+const misses = document.querySelector('#miss');
+const timeLeft = document.querySelector('#time');
+
+
+
 
 // RunGame
 
