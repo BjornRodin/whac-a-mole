@@ -110,10 +110,12 @@ body>div {
 
 #popup-content {
     text-align: center;
-    background-color: burlywood;
+    background-color: #FDF9EC;
+    max-width: 600px;
+    font-size: 150%;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 8px 13px 20px 0px rgba(189, 8, 8, 0.75);
+    box-shadow: 10px 5px 5px #4A4737;
 }
 
 /* End Control-area */
