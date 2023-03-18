@@ -59,6 +59,7 @@ function playGame() {
 
         setTimeout(() => {
             if (gameTime <= 0) {
+                gameRunning = false;
                 return;
             }
             if (randomMole.classList.contains('mole')) {
@@ -77,11 +78,15 @@ function playGame() {
         timeLeft.textContent = gameTime;
         if (gameTime <= 0) {
             clearInterval(timer);
+            gameRunning = false;
         }
     }, 1000);
 
     boxes.forEach(box => {
         box.addEventListener('click', () => {
+            if (!gameRunning) {
+                return;
+            }
             if (box.id == hitMole) {
                 result++;
                 hits.textContent = result;
