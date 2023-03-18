@@ -10,12 +10,15 @@ const timeLeft = document.querySelector('#time');
  * Telling Javascript we start at 0 hits
  * defining hitmole element
  */
+
 let result = 0
 let hitMole
+
 /**
  * First we remove any 'mole' in the grid,
  * then adding it in by choosing a random box to put the mole in,
  * then checking if we hit the random box the mole appear in
+ * eventlistener to check for mouseclicks on existing mole and adding to hits
  */
 
 function randomBox() {
@@ -26,21 +29,26 @@ function randomBox() {
     let randomMole = boxes[Math.floor(Math.random() * 9)]
     randomMole.classList.add('mole')
 
-    hitMole = randomBox.id
+    hitMole = randomMole.id
 }
 
 boxes.forEach(box => {
-    box.addEventListener('mousedown', () => {
+    box.addEventListener('click', () => {
         if (box.id == hitMole) {
-            result++
-            hits.textContent = result
-            hitMole = null
+            result++;
+            hits.textContent = result;
+            hitMole = null;
         }
     })
 })
 
-randomBox()
+// Function to move the mole around automatically
 
+function moveMole() {
+    let timerId = null
+    timerId = setInterval(randomBox, 2000)
+}
+moveMole()
 
 // CheckIfHit
 
