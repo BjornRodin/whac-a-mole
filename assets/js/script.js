@@ -11,8 +11,8 @@ const timeLeft = document.querySelector('#time');
  * defining hitmole element
  */
 
-let result = 0
-let miss = 0
+let result = 0;
+let miss = 0;
 let hitMole
 
 /**
@@ -24,13 +24,21 @@ let hitMole
 
 function randomBox() {
     boxes.forEach(box => {
-        box.classList.remove('mole')
-    })
+        box.classList.remove('mole');
+    });
 
-    let randomMole = boxes[Math.floor(Math.random() * 9)]
-    randomMole.classList.add('mole')
+    let randomMole = boxes[Math.floor(Math.random() * 9)];
+    randomMole.classList.add('mole');
+    hitMole = randomMole.id;
 
-    hitMole = randomMole.id
+    setTimeout(() => {
+        if (randomMole.classList.contains('mole')) {
+            randomMole.classList.remove('mole')
+            hitMole = null;
+            miss++;
+            misses.textContent = miss;
+        }
+    }, 2000);
 }
 
 boxes.forEach(box => {
@@ -42,17 +50,18 @@ boxes.forEach(box => {
         } else {
             miss++;
             misses.textContent = miss;
+            hitMole = null;
         }
-    })
-})
+    });
+});
 
 // Function to move the mole around automatically
 
 function moveMole() {
-    let timerId = null
-    timerId = setInterval(randomBox, 2000)
+    let timerId = null;
+    timerId = setInterval(randomBox, 2000);
 }
-moveMole()
+moveMole();
 
 // CheckIfHit
 
