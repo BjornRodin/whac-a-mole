@@ -23,6 +23,9 @@ let timerId;
  */
 
 function playGame() {
+
+    let gameRunning = true;
+
     result = 0;
     miss = 0;
     hitMole = null;
@@ -43,6 +46,7 @@ function playGame() {
 
     function randomBox() {
         if (gameTime <= 0) {
+            gameRunning = false;
             return;
         }
         boxes.forEach(box => {
