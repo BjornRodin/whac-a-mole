@@ -118,10 +118,10 @@ function playGame() {
 }
 
 function gameOver() {
+    // Creating the scorePopup window
     const scorePopup = document.createElement('div');
     scorePopup.classList.add('score-popup');
     scorePopup.classList.add('score-content');
-    scorePopup.setAttribute('id', 'overlay');
     scorePopup.innerHTML = `
             <h2>Game Over!</h2>
             <p>You hit <span><strong>${result}</strong> moles!</span></p>
@@ -134,14 +134,21 @@ function gameOver() {
             `;
     document.body.appendChild(scorePopup);
 
+    // Creating the overlay
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild('overlay');
+
     const playAgainButton = document.querySelector('#play-again');
     playAgainButton.addEventListener('click', () => {
         document.body.removeChild(scorePopup);
+        document.body.removeChild(overlay);
         playGame();
     });
 
     const closeScoreButton = document.querySelector('#close-score');
     closeScoreButton.addEventListener('click', () => {
         document.body.removeChild(scorePopup);
+        document.body.removeChild(overlay);
     })
 }
