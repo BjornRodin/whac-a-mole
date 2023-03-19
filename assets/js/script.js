@@ -27,7 +27,7 @@ popupClose.addEventListener('click', () => {
 let result = 0;
 let miss = 0;
 let hitMole;
-let gameTime = 10;
+let gameTime = 60;
 let timerId;
 
 /**
@@ -43,7 +43,7 @@ function playGame() {
     result = 0;
     miss = 0;
     hitMole = null;
-    gameTime = 10;
+    gameTime = 60;
     hits.textContent = '0';
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
@@ -75,12 +75,6 @@ function playGame() {
             if (gameTime <= 0) {
                 gameRunning = false;
                 return;
-            }
-            if (randomMole.classList.contains('mole')) {
-                randomMole.classList.remove('mole')
-                hitMole = null;
-                miss++;
-                misses.textContent = miss;
             }
         }, 2000);
     }
