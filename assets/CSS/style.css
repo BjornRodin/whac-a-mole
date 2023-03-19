@@ -129,9 +129,6 @@ body>div {
     transform: translate(-50%, -50%);
     width: 100%;
     height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .score-content {
@@ -142,6 +139,11 @@ body>div {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 10px 5px 5px #4A4737;
+}
+
+#score-popup div {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* End gameOver score popup */

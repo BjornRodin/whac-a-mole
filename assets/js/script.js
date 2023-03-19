@@ -121,10 +121,27 @@ function gameOver() {
     const scorePopup = document.createElement('div');
     scorePopup.classList.add('score-popup');
     scorePopup.classList.add('score-content');
+    scorePopup.setAttribute('id', 'overlay');
     scorePopup.innerHTML = `
             <h2>Game Over!</h2>
-            <p>Hits: <span>${result}</span></p>
-            <p>Misses: <span>${miss}</span></p>
+            <p>You hit <span><strong>${result}</strong> moles!</span></p>
+            <p>You missed <span><strong>${miss}</strong> times.</span></p>
+            <p>Would you like to play again?</p>
+            <div>
+            <button id="play-again">Play Again!</button>
+            <button id="close-score">Close</button>
+            </div>
             `;
     document.body.appendChild(scorePopup);
+
+    const playAgainButton = document.querySelector('#play-again');
+    playAgainButton.addEventListener('click', () => {
+        document.body.removeChild(scorePopup);
+        playGame();
+    });
+
+    const closeScoreButton = document.querySelector('#close-score');
+    closeScoreButton.addEventListener('click', () => {
+        document.body.removeChild(scorePopup);
+    })
 }
