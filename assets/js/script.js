@@ -27,7 +27,7 @@ popupClose.addEventListener('click', () => { // To close the popup window for th
 let result = 0;
 let miss = 0;
 let hitMole;
-let gameTime = 10;
+let gameTime = 60;
 let timerId;
 
 /**
@@ -42,7 +42,7 @@ function playGame() {
     result = 0;
     miss = 0;
     hitMole = null;
-    gameTime = 10;
+    gameTime = 60;
     hits.textContent = '0';
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
@@ -68,12 +68,13 @@ function playGame() {
         randomMole.classList.add('mole');
         hitMole = randomMole.id;
 
+        let randomAppear = Math.floor(Math.random() * 500) + 500;
         setTimeout(() => {
             if (gameTime <= 0) {
                 gameRunning = false;
                 return;
             }
-        }, 2000);
+        }, randomAppear);
     }
 
     // Display time left to play when the game is started
@@ -111,8 +112,9 @@ function playGame() {
     // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
     function moveMole() {
+        let randomAppear = Math.floor(Math.random() * 500) + 500;
         clearInterval(timerId);
-        timerId = setInterval(randomBox, 2000);
+        timerId = setInterval(randomBox, randomAppear);
     }
     moveMole();
 }
