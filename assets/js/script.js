@@ -27,7 +27,7 @@ popupClose.addEventListener('click', () => {
 let result = 0;
 let miss = 0;
 let hitMole;
-let gameTime = 60;
+let gameTime = 20;
 let timerId;
 
 /**
@@ -39,16 +39,13 @@ let timerId;
 function playGame() {
 
     let gameRunning = true;
-
     result = 0;
     miss = 0;
     hitMole = null;
-    gameTime = 60;
+    gameTime = 20;
     hits.textContent = '0';
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
-
-    clearInterval(timerId);
 
     /**
      * First we remove any 'mole' in the grid,
@@ -79,7 +76,7 @@ function playGame() {
         }, 2000);
     }
 
-    // Display time left to play
+    // Display time left to play when the game is started
 
     let timer = setInterval(() => {
         gameTime--;
@@ -110,7 +107,7 @@ function playGame() {
     // Function to move the mole around automatically
 
     function moveMole() {
-        let timerId = null;
+        clearInterval(timerId);
         timerId = setInterval(randomBox, 2000);
     }
     moveMole();
