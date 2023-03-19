@@ -137,7 +137,7 @@ function gameOver() {
     // Creating the overlay
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
-    document.body.appendChild('overlay');
+    document.body.appendChild(overlay);
 
     const playAgainButton = document.querySelector('#play-again');
     playAgainButton.addEventListener('click', () => {
