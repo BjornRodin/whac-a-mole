@@ -12,13 +12,13 @@ const popupClose = document.querySelector('#popup-close');
 
 // Eventlisteners
 
-playButton.addEventListener('click', playGame);
+playButton.addEventListener('click', playGame); // Start game when play button is clicked
 
-howToPlayButton.addEventListener('click', () => {
+howToPlayButton.addEventListener('click', () => { // When how to play button is clicked a popup with rules is shown
     howToPopup.style.display = 'flex';
 });
 
-popupClose.addEventListener('click', () => {
+popupClose.addEventListener('click', () => { // To close the popup window for the rules
     howToPopup.style.display = 'none';
 })
 
@@ -27,7 +27,7 @@ popupClose.addEventListener('click', () => {
 let result = 0;
 let miss = 0;
 let hitMole;
-let gameTime = 20;
+let gameTime = 60;
 let timerId;
 
 /**
@@ -42,7 +42,7 @@ function playGame() {
     result = 0;
     miss = 0;
     hitMole = null;
-    gameTime = 20;
+    gameTime = 60;
     hits.textContent = '0';
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
@@ -78,14 +78,18 @@ function playGame() {
 
     // Display time left to play when the game is started
 
-    let timer = setInterval(() => {
-        gameTime--;
-        timeLeft.textContent = gameTime;
-        if (gameTime <= 0) {
-            clearInterval(timer);
-            gameRunning = false;
-        }
-    }, 1000);
+    function updateTimeLeft() {
+        let timer = setInterval(() => {
+            gameTime--;
+            timeLeft.textContent = gameTime;
+            if (gameTime <= 0) {
+                clearInterval(timer);
+                gameRunning = false;
+                gameOver();
+            }
+        }, 1000);
+    }
+    updateTimeLeft();
 
     boxes.forEach(box => {
         box.addEventListener('click', () => {
@@ -104,7 +108,7 @@ function playGame() {
         });
     });
 
-    // Function to move the mole around automatically
+    // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
     function moveMole() {
         clearInterval(timerId);
