@@ -59,7 +59,7 @@ body>div {
     width: 33%;
     height: 33%;
     background-image: url(../images/pileofdirt.png);
-    background-size: contain;
+    background-size: 160px 50px;
     background-repeat: no-repeat;
     background-position: bottom;
     position: relative;
@@ -78,7 +78,7 @@ body>div {
 .box.mole::before {
     background-image: url(../images/molefigure.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 130px;
     background-position: center;
     z-index: -1;
 }
@@ -174,15 +174,11 @@ body>div {
     z-index: 9;
 }
 
-/*.score-popup>div {
+.score-content>div {
     display: flex;
     justify-content: space-between;
-}*/
-
-/*.score-popup div>button {
-    display: flex;
-    justify-content: space-between;
-}*/
+    width: 90%;
+}
 
 #play-again,
 #close-score {
@@ -199,8 +195,8 @@ body>div {
 
 /* Media queries */
 
-/* For screens up to 550px wide */
-@media screen and (max-width: 550px) {
+/* For screens up to 640px wide */
+@media screen and (max-width: 640px) {
     .game-info {
         width: 90%;
         min-width: 0px;
@@ -208,25 +204,52 @@ body>div {
 
     .game-info>p {
         font-size: 100%;
+        background-color: #d9ce3b;
+        padding: 5px;
+        border-radius: 5px;
     }
 
     .mole-area {
-        width: 90%;
+        width: 400px;
         min-width: 0px;
-
+        height: 400px;
     }
 
+    .box {
+        background-size: 120px 35px;
+    }
+
+    .box.mole::before {
+        background-size: 100px;
+        background-position: bottom;
+    }
+
+
     .control-area {
-        width: 90%;
+        width: 80%;
         min-width: 0px;
+        justify-content: space-around;
     }
 
     .button {
-        width: 45%;
         font-size: 120%;
+        height: 70px;
+        width: 150px;
     }
 
     .hidden-spacer {
         width: 0px;
+        height: 70px;
+    }
+
+    #popup-content {
+        max-width: 80%;
+        font-size: 100%;
+    }
+
+    .score-content {
+        max-width: 70%;
+        font-size: 100%;
+        min-width: 400px;
     }
 }
