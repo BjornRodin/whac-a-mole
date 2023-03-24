@@ -253,3 +253,59 @@ body>div {
         min-width: 400px;
     }
 }
+
+/* For screens up to 450px wide */
+@media screen and (max-width: 450px) {
+
+    .game-info {
+        width: 100%;
+        height: 50px;
+    }
+
+    .mole-area {
+        width: 90%;
+        height: 300px;
+    }
+
+    .box {
+        background-size: 100% 30%;
+    }
+
+    .box.mole::before {
+        background-size: 90px;
+    }
+
+    .control-area {
+        width: 100%;
+    }
+
+    .button {
+        font-size: 100%;
+        height: 50px;
+        width: 120px;
+    }
+
+    .hidden-spacer {
+        height: 50px;
+    }
+
+    #popup-content {
+        max-width: 90%;
+    }
+
+    #popup-close {
+        width: 120px;
+        font-size: 100%;
+    }
+
+    .score-content {
+        max-width: 90%;
+        min-width: 0px;
+    }
+
+    #play-again,
+    #close-score {
+        width: 120px;
+        font-size: 100%;
+    }
+}
