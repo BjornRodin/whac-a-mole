@@ -35,7 +35,6 @@ let timerId;
  * variables updated for the game
  * to clear eventual existing timers the function clearInterval is also called
  */
-
 function playGame() {
 
     let gameRunning = true;
@@ -54,7 +53,6 @@ function playGame() {
      * eventlistener to check for mouseclicks on existing mole and adding to hits
      * gameTime make the game only run as long as there is still time left
      */
-
     function randomBox() {
         if (gameTime <= 0) {
             gameRunning = false;
@@ -77,8 +75,9 @@ function playGame() {
         }, randomAppear);
     }
 
-    // Display time left to play when the game is started
-
+    /**
+     * Display time left to play when the game is started
+     */
     function updateTimeLeft() {
         let timer = setInterval(() => {
             gameTime--;
@@ -112,7 +111,7 @@ function playGame() {
     // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
     function moveMole() {
-        let randomAppear = Math.floor(Math.random() * 500) + 500;
+        const randomAppear = Math.floor(Math.random() * 500) + 500;
         clearInterval(timerId);
         timerId = setInterval(randomBox, randomAppear);
     }
