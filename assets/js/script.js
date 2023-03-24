@@ -27,7 +27,7 @@ popupClose.addEventListener('click', () => { // To close the popup window for th
 let result = 0;
 let miss = 0;
 let hitMole;
-let gameTime = 10;
+let gameTime = 60;
 let timerId;
 
 /**
@@ -42,7 +42,7 @@ function playGame() {
     result = 0;
     miss = 0;
     hitMole = null;
-    gameTime = 10;
+    gameTime = 60;
     hits.textContent = '0';
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
