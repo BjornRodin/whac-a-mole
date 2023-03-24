@@ -4,6 +4,7 @@
 
 body {
     background: url(../images/background-field.jpg) no-repeat center center;
+    font-family: "Alkatra", sans-serif;
 }
 
 body>div {
@@ -18,8 +19,11 @@ body>div {
 /* Start Header */
 
 .header {
-    font-size: 250%;
+    font-size: 450%;
     letter-spacing: 2px;
+    font-family: "Delicious Handrawn", sans-serif;
+    margin: 20px 0px 0px;
+    text-transform: uppercase;
 }
 
 /* End Header */
@@ -104,6 +108,11 @@ body>div {
     font-size: 150%;
     border-radius: 10px;
     box-shadow: 10px 5px 5px #d9ce3b;
+    font-family: "Alkatra", sans-serif;
+}
+
+button:hover {
+    background-color: #F2D49B;
 }
 
 .hidden-spacer {
@@ -139,6 +148,7 @@ body>div {
     font-weight: bold;
     font-size: 120%;
     border-radius: 10px;
+    font-family: "Alkatra", sans-serif;
 }
 
 /* End Control-area */
@@ -176,6 +186,16 @@ body>div {
     z-index: 9;
 }
 
+.green {
+    color: green;
+    font-size: 150%;
+}
+
+.red {
+    color: red;
+    font-size: 150%;
+}
+
 .score-content>div {
     display: flex;
     justify-content: space-between;
@@ -190,6 +210,7 @@ body>div {
     font-weight: bold;
     font-size: 120%;
     border-radius: 10px;
+    font-family: "Alkatra", sans-serif;
 }
 
 /* End gameOver score popup */
@@ -199,6 +220,10 @@ body>div {
 
 /* For screens up to 640px wide */
 @media screen and (max-width: 640px) {
+    .header {
+        font-size: 350%;
+    }
+
     .game-info {
         width: 90%;
         min-width: 0px;
@@ -258,6 +283,10 @@ body>div {
 
 /* For screens up to 450px wide */
 @media screen and (max-width: 450px) {
+    .header {
+        font-size: 250%;
+        margin: 20px 0px;
+    }
 
     .game-info {
         width: 100%;

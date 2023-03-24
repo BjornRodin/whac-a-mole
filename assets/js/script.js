@@ -126,8 +126,8 @@ function gameOver() {
     scorePopup.classList.add('score-content');
     scorePopup.innerHTML = `
             <h2>Game Over!</h2>
-            <p>You hit <span><strong>${result}</strong> moles!</span></p>
-            <p>You missed <span><strong>${miss}</strong> times.</span></p>
+            <p>You hit <span><strong class="green">${result}</strong> moles!</span></p>
+            <p>You missed <span><strong class="red">${miss}</strong> times.</span></p>
             <p>Would you like to play again?</p>
             <div>
             <button id="play-again">Play Again!</button>
