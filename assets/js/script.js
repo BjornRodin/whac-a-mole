@@ -45,6 +45,8 @@ function playGame() {
     hits.textContent = '0';
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
+    updateTimeLeft();
+    calculateScore();
 
     /**
      * First we remove any 'mole' in the grid,
@@ -91,22 +93,24 @@ function playGame() {
     }
     updateTimeLeft();
 
-    boxes.forEach(box => {
-        box.addEventListener('click', () => {
-            if (!gameRunning) {
-                return;
-            }
-            if (box.id == hitMole) {
-                result++;
-                hits.textContent = result;
-                hitMole = null;
-            } else {
-                miss++;
-                misses.textContent = miss;
-                hitMole = null;
-            }
+    function calculateScore() {
+        boxes.forEach(box => {
+            box.addEventListener('click', () => {
+                if (!gameRunning) {
+                    return;
+                }
+                if (box.id == hitMole) {
+                    result++;
+                    hits.textContent = result;
+                    hitMole = null;
+                } else {
+                    miss++;
+                    misses.textContent = miss;
+                    hitMole = null;
+                }
+            });
         });
-    });
+    }
 
     // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
