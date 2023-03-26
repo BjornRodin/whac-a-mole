@@ -37,7 +37,7 @@ popupClose.addEventListener('click', () => { // To close the popup window for th
  * to clear eventual existing timers the function clearInterval is also called
  */
 function playGame() {
-    let gameRunning = true;
+    gameRunning = true;
     result = 0;
     miss = 0;
     hitMole = null;
