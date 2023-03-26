@@ -30,7 +30,7 @@ howToPlayButton.addEventListener('click', () => { // When how to play button is 
 
 popupClose.addEventListener('click', () => { // To close the popup window for the rules
     howToPopup.style.display = 'none';
-})
+});
 
 /**
  * playGame function to only start the game when the 'play' button is clicked
@@ -38,6 +38,8 @@ popupClose.addEventListener('click', () => { // To close the popup window for th
  * to clear eventual existing timers the function clearInterval is also called
  */
 function playGame() {
+    clearInterval(timerId);
+    clearInterval(timer);
     gameRunning = true;
     result = 0;
     miss = 0;
@@ -120,6 +122,7 @@ function moveMole() {
     let randomAppear = Math.floor(Math.random() * 500) + 500;
     clearInterval(timerId);
     timerId = setInterval(randomBox, randomAppear);
+    console.log(randomAppear);
 }
 
 function gameOver() {
@@ -155,5 +158,5 @@ function gameOver() {
     closeScoreButton.addEventListener('click', () => {
         document.body.removeChild(scorePopup);
         document.body.removeChild(overlay);
-    })
+    });
 }
