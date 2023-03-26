@@ -61,6 +61,7 @@ function playGame() {
         box.removeEventListener('click', clickHandler);
     });
     calculateScore();
+    randomAppear = Math.floor(Math.random() * (randomAppearMax - randomAppearMin)) + randomAppearMin;
     moveMole();
 }
 
@@ -71,14 +72,13 @@ function selectDifficulty() {
         randomAppearMax = 1000;
     } else if (difficulty === 'medium') {
         gameTime = 60;
-        randomAppearMin = 400;
-        randomAppearMax = 700;
+        randomAppearMin = 300;
+        randomAppearMax = 600;
     } else if (difficulty === 'hard') {
         gameTime = 60;
-        randomAppearMin = 300;
-        randomAppearMax = 500;
+        randomAppearMin = 200;
+        randomAppearMax = 400;
     }
-    console.log(selectDifficulty);
 }
 
 /**
@@ -107,7 +107,6 @@ function randomBox() {
             return;
         }
     }, randomAppear);
-    console.log(randomAppear);
 }
 
 
@@ -153,7 +152,6 @@ function clickHandler() {
 // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
 function moveMole() {
-    randomAppear = Math.floor(Math.random() * 501) + 500;
     clearInterval(timerId);
     timerId = setInterval(randomBox, randomAppear);
 }
