@@ -9,6 +9,7 @@ const playButton = document.querySelector('#play');
 const howToPlayButton = document.querySelector('#how-to-play');
 const howToPopup = document.querySelector('#how-to-popup');
 const popupClose = document.querySelector('#popup-close');
+const difficultyLevel = document.querySelector('#difficulty');
 
 // Defining variables in the script
 
@@ -19,8 +20,15 @@ let gameTime = 60;
 let timerId;
 let gameRunning = false;
 let timer;
+let randomAppear;
+let randomAppearMin;
+let randomAppearMax;
 
 // Eventlisteners
+
+difficultyLevel.addEventListener('change', () => {
+    difficulty = difficultyLevel.value;
+});
 
 playButton.addEventListener('click', playGame); // Start game when play button is clicked
 
@@ -70,6 +78,7 @@ function selectDifficulty() {
         randomAppearMin = 300;
         randomAppearMax = 500;
     }
+    console.log(selectDifficulty);
 }
 
 /**
@@ -91,7 +100,7 @@ function randomBox() {
     let randomMole = boxes[Math.floor(Math.random() * 9)];
     randomMole.classList.add('mole');
     hitMole = randomMole.id;
-    let randomAppear = Math.floor(Math.random() * 501) + 500;
+    randomAppear = Math.floor(Math.random() * (randomAppearMax - randomAppearMin)) + randomAppearMin;
     setTimeout(() => {
         if (gameTime <= 0) {
             gameRunning = false;
@@ -144,7 +153,7 @@ function clickHandler() {
 // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
 function moveMole() {
-    let randomAppear = Math.floor(Math.random() * 501) + 500;
+    randomAppear = Math.floor(Math.random() * 501) + 500;
     clearInterval(timerId);
     timerId = setInterval(randomBox, randomAppear);
 }
