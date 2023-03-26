@@ -47,80 +47,79 @@ function playGame() {
     timeLeft.textContent = gameTime;
     updateTimeLeft();
     calculateScore();
+    moveMole();
+}
+/**
+ * First we remove any 'mole' in the grid,
+ * then adding it in by choosing a random box to put the mole in,
+ * then checking if we hit the random box the mole appear in
+ * eventlistener to check for mouseclicks on existing mole and adding to hits
+ * gameTime make the game only run as long as there is still time left
+ */
+function randomBox() {
+    if (gameTime <= 0) {
+        gameRunning = false;
+        return;
+    }
+    boxes.forEach(box => {
+        box.classList.remove('mole');
+    });
 
-    /**
-     * First we remove any 'mole' in the grid,
-     * then adding it in by choosing a random box to put the mole in,
-     * then checking if we hit the random box the mole appear in
-     * eventlistener to check for mouseclicks on existing mole and adding to hits
-     * gameTime make the game only run as long as there is still time left
-     */
-    function randomBox() {
+    let randomMole = boxes[Math.floor(Math.random() * 9)];
+    randomMole.classList.add('mole');
+    hitMole = randomMole.id;
+    let randomAppear = Math.floor(Math.random() * 500) + 500;
+    setTimeout(() => {
         if (gameTime <= 0) {
             gameRunning = false;
             return;
         }
-        boxes.forEach(box => {
-            box.classList.remove('mole');
-        });
+    }, randomAppear);
+}
 
-        let randomMole = boxes[Math.floor(Math.random() * 9)];
-        randomMole.classList.add('mole');
-        hitMole = randomMole.id;
+/**
+ * Display time left to play when the game is started
+ */
+function updateTimeLeft() {
+    let timer = setInterval(() => {
+        gameTime--;
+        timeLeft.textContent = gameTime;
+        if (gameTime <= 0) {
+            clearInterval(timer);
+            gameRunning = false;
+            gameOver();
+        }
+    }, 1000);
+}
+updateTimeLeft();
 
-        let randomAppear = Math.floor(Math.random() * 500) + 500;
-        setTimeout(() => {
-            if (gameTime <= 0) {
-                gameRunning = false;
+function calculateScore() {
+    boxes.forEach(box => {
+        box.addEventListener('click', () => {
+            if (!gameRunning) {
                 return;
             }
-        }, randomAppear);
-    }
-
-    /**
-     * Display time left to play when the game is started
-     */
-    function updateTimeLeft() {
-        let timer = setInterval(() => {
-            gameTime--;
-            timeLeft.textContent = gameTime;
-            if (gameTime <= 0) {
-                clearInterval(timer);
-                gameRunning = false;
-                gameOver();
+            if (box.id == hitMole) {
+                result++;
+                hits.textContent = result;
+                hitMole = null;
+            } else {
+                miss++;
+                misses.textContent = miss;
+                hitMole = null;
             }
-        }, 1000);
-    }
-    updateTimeLeft();
-
-    function calculateScore() {
-        boxes.forEach(box => {
-            box.addEventListener('click', () => {
-                if (!gameRunning) {
-                    return;
-                }
-                if (box.id == hitMole) {
-                    result++;
-                    hits.textContent = result;
-                    hitMole = null;
-                } else {
-                    miss++;
-                    misses.textContent = miss;
-                    hitMole = null;
-                }
-            });
         });
-    }
-
-    // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
-
-    function moveMole() {
-        const randomAppear = Math.floor(Math.random() * 500) + 500;
-        clearInterval(timerId);
-        timerId = setInterval(randomBox, randomAppear);
-    }
-    moveMole();
+    });
 }
+
+// Function to move the mole around automatically and clearing the timerId each time the play button is clicked
+
+function moveMole() {
+    const randomAppear = Math.floor(Math.random() * 500) + 500;
+    clearInterval(timerId);
+    timerId = setInterval(randomBox, randomAppear);
+}
+moveMole();
 
 function gameOver() {
     // Creating the scorePopup window
