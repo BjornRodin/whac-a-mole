@@ -92,6 +92,15 @@ body>div {
 
 /* End Mole-area */
 
+/* Start difficulty area */
+
+.difficulty {
+    min-width: 500px;
+    height: 100px;
+}
+
+/* End difficulty area */
+
 /* Start Control-area */
 
 .control-area {
