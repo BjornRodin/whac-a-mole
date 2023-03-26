@@ -65,7 +65,7 @@ function selectDifficulty() {
         gameTime = 60;
         randomAppearMin = 400;
         randomAppearMax = 700;
-    } else {
+    } else if (difficulty === 'hard') {
         gameTime = 60;
         randomAppearMin = 300;
         randomAppearMax = 500;
@@ -98,6 +98,7 @@ function randomBox() {
             return;
         }
     }, randomAppear);
+    console.log(randomAppear);
 }
 
 
