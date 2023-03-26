@@ -44,7 +44,7 @@ function playGame() {
     result = 0;
     miss = 0;
     hitMole = null;
-    gameTime = 60;
+    selectDifficulty();
     hits.textContent = '0';
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
