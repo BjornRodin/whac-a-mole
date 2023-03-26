@@ -18,6 +18,7 @@ let hitMole;
 let gameTime = 60;
 let timerId;
 let gameRunning = false;
+let timer;
 
 // Eventlisteners
 
@@ -77,11 +78,13 @@ function randomBox() {
     }, randomAppear);
 }
 
+
 /**
  * Display time left to play when the game is started
  */
 function updateTimeLeft() {
-    let timer = setInterval(() => {
+    clearInterval(timer);
+    timer = setInterval(() => {
         gameTime--;
         timeLeft.textContent = gameTime;
         if (gameTime <= 0) {
