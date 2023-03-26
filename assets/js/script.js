@@ -49,6 +49,9 @@ function playGame() {
     misses.textContent = '0';
     timeLeft.textContent = gameTime;
     updateTimeLeft();
+    boxes.forEach(box => {
+        box.removeEventListener('click', clickHandler);
+    });
     calculateScore();
     moveMole();
 }
@@ -99,22 +102,26 @@ function updateTimeLeft() {
 
 function calculateScore() {
     boxes.forEach(box => {
-        box.addEventListener('click', () => {
-            if (!gameRunning) {
-                return;
-            }
-            if (box.id == hitMole) {
-                result++;
-                hits.textContent = result;
-                hitMole = null;
-            } else {
-                miss++;
-                misses.textContent = miss;
-                hitMole = null;
-            }
-        });
+        box.addEventListener('click', clickHandler);
     });
 }
+
+function clickHandler() {
+    if (!gameRunning) {
+        return;
+    }
+    if (this.id == hitMole) {
+        result++;
+        hits.textContent = result;
+        hitMole = null;
+    } else {
+        miss++;
+        misses.textContent = miss;
+        hitMole = null;
+    }
+}
+
+
 
 // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
@@ -122,7 +129,6 @@ function moveMole() {
     let randomAppear = Math.floor(Math.random() * 500) + 500;
     clearInterval(timerId);
     timerId = setInterval(randomBox, randomAppear);
-    console.log(randomAppear);
 }
 
 function gameOver() {
@@ -130,8 +136,21 @@ function gameOver() {
     const scorePopup = document.createElement('div');
     scorePopup.classList.add('score-popup');
     scorePopup.classList.add('score-content');
+    let message = '';
+    if (result >= 65) {
+        message = 'Whacking god!';
+    } else if (result >= 45) {
+        message = 'You did a great job, keep it up!';
+    } else if (result >= 30) {
+        message = 'You did a good job!';
+    } else if (result >= 20) {
+        message = 'Focus up, the moles are getting away!'
+    } else {
+        message = 'Are you a friend of the moles? Try again!';
+    }
     scorePopup.innerHTML = `
             <h2>Game Over!</h2>
+            <p>${message}</p>
             <p>You hit <span><strong class="green">${result}</strong> moles!</span></p>
             <p>You missed <span><strong class="red">${miss}</strong> times.</span></p>
             <p>Would you like to play again?</p>
