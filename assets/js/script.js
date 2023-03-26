@@ -23,6 +23,7 @@ let timer;
 let randomAppear;
 let randomAppearMin;
 let randomAppearMax;
+let difficulty = 'easy';
 
 // Eventlisteners
 
@@ -169,7 +170,7 @@ function gameOver() {
     } else if (result >= 30) {
         message = 'You did a good job!';
     } else if (result >= 20) {
-        message = 'Focus up, the moles are getting away!'
+        message = 'Focus up, the moles are getting away!';
     } else {
         message = 'Are you a friend of the moles? Try again!';
     }
