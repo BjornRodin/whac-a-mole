@@ -10,6 +10,15 @@ const howToPlayButton = document.querySelector('#how-to-play');
 const howToPopup = document.querySelector('#how-to-popup');
 const popupClose = document.querySelector('#popup-close');
 
+// Defining variables in the script
+
+let result = 0;
+let miss = 0;
+let hitMole;
+let gameTime = 60;
+let timerId;
+let gameRunning = false;
+
 // Eventlisteners
 
 playButton.addEventListener('click', playGame); // Start game when play button is clicked
@@ -22,21 +31,12 @@ popupClose.addEventListener('click', () => { // To close the popup window for th
     howToPopup.style.display = 'none';
 })
 
-// Defining variables in the script
-
-let result = 0;
-let miss = 0;
-let hitMole;
-let gameTime = 60;
-let timerId;
-
 /**
  * playGame function to only start the game when the 'play' button is clicked
  * variables updated for the game
  * to clear eventual existing timers the function clearInterval is also called
  */
 function playGame() {
-
     let gameRunning = true;
     result = 0;
     miss = 0;
@@ -91,7 +91,6 @@ function updateTimeLeft() {
         }
     }, 1000);
 }
-updateTimeLeft();
 
 function calculateScore() {
     boxes.forEach(box => {
@@ -115,11 +114,10 @@ function calculateScore() {
 // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
 function moveMole() {
-    const randomAppear = Math.floor(Math.random() * 500) + 500;
+    let randomAppear = Math.floor(Math.random() * 500) + 500;
     clearInterval(timerId);
     timerId = setInterval(randomBox, randomAppear);
 }
-moveMole();
 
 function gameOver() {
     // Creating the scorePopup window
