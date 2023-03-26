@@ -94,9 +94,30 @@ body>div {
 
 /* Start difficulty area */
 
+.level-difficulty {
+    min-width: 300px;
+    height: 30px;
+    text-align: center;
+    background-color: #d9ce3b;
+    padding: 0px 20px 10px;
+    border-radius: 0px 0px 10px 10px;
+    opacity: 0.9;
+    -webkit-tap-highlight-color: transparent;
+}
+
 .difficulty {
-    min-width: 500px;
-    height: 100px;
+    font-size: 120%;
+    font-family: "Alkatra", sans-serif;
+}
+
+#difficulty {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #F2D49B;
+}
+
+#difficulty:hover {
+    background-color: #f2f2f2;
 }
 
 /* End difficulty area */
@@ -119,10 +140,12 @@ body>div {
     border-radius: 10px;
     box-shadow: 10px 5px 5px #d9ce3b;
     font-family: "Alkatra", sans-serif;
+    background-color: #F2D49B;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #F2D49B;
+    background-color: #f2f2f2;
 }
 
 .hidden-spacer {
@@ -159,6 +182,12 @@ button:hover {
     font-size: 120%;
     border-radius: 10px;
     font-family: "Alkatra", sans-serif;
+    background-color: #F2D49B;
+    cursor: pointer;
+}
+
+#popup-close:hover {
+    background-color: #f2f2f2;
 }
 
 /* End Control-area */
@@ -221,6 +250,13 @@ button:hover {
     font-size: 120%;
     border-radius: 10px;
     font-family: "Alkatra", sans-serif;
+    background-color: #F2D49B;
+    cursor: pointer;
+}
+
+#play-again:hover,
+#close-score:hover {
+    background-color: #f2f2f2;
 }
 
 /* End gameOver score popup */
