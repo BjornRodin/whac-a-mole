@@ -55,6 +55,23 @@ function playGame() {
     calculateScore();
     moveMole();
 }
+
+function selectDifficulty() {
+    if (difficulty === 'easy') {
+        gameTime = 60;
+        randomAppearMin = 500;
+        randomAppearMax = 1000;
+    } else if (difficulty === 'medium') {
+        gameTime = 60;
+        randomAppearMin = 400;
+        randomAppearMax = 700;
+    } else {
+        gameTime = 60;
+        randomAppearMin = 300;
+        randomAppearMax = 500;
+    }
+}
+
 /**
  * First we remove any 'mole' in the grid,
  * then adding it in by choosing a random box to put the mole in,
@@ -74,7 +91,7 @@ function randomBox() {
     let randomMole = boxes[Math.floor(Math.random() * 9)];
     randomMole.classList.add('mole');
     hitMole = randomMole.id;
-    let randomAppear = Math.floor(Math.random() * 500) + 500;
+    let randomAppear = Math.floor(Math.random() * 501) + 500;
     setTimeout(() => {
         if (gameTime <= 0) {
             gameRunning = false;
@@ -126,7 +143,7 @@ function clickHandler() {
 // Function to move the mole around automatically and clearing the timerId each time the play button is clicked
 
 function moveMole() {
-    let randomAppear = Math.floor(Math.random() * 500) + 500;
+    let randomAppear = Math.floor(Math.random() * 501) + 500;
     clearInterval(timerId);
     timerId = setInterval(randomBox, randomAppear);
 }

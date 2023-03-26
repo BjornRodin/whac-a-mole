@@ -298,6 +298,9 @@ button:hover {
         background-position: bottom;
     }
 
+    .difficulty {
+        font-size: 100%;
+    }
 
     .control-area {
         width: 80%;
@@ -351,6 +354,10 @@ button:hover {
 
     .box.mole::before {
         background-size: 90px;
+    }
+
+    .level-difficulty {
+        min-width: 60%;
     }
 
     .control-area {
