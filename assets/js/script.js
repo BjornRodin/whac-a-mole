@@ -125,7 +125,6 @@ function randomBox() {
     }, randomAppear);
 }
 
-
 /**
  * Display time left to play when the game is started
  */
