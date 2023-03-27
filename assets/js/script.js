@@ -196,7 +196,7 @@ function gameOver() {
     playAgainButton.addEventListener('click', () => {
         document.body.removeChild(scorePopup);
         document.body.removeChild(overlay);
-        playGame();
+        playGame(selectDifficulty);
     });
 
     const closeScoreButton = document.querySelector('#close-score');
