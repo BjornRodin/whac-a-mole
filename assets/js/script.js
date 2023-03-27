@@ -1,7 +1,8 @@
-// Getting the constants so we can work on them in the script
+/**
+ * Getting the constants so we can work on them in the script
+ */
 
 const boxes = document.querySelectorAll('.box');
-const mole = document.querySelector('.mole');
 const hits = document.querySelector('#hit');
 const misses = document.querySelector('#miss');
 const timeLeft = document.querySelector('#time');
@@ -11,7 +12,9 @@ const howToPopup = document.querySelector('#how-to-popup');
 const popupClose = document.querySelector('#popup-close');
 const difficultyLevel = document.querySelector('#difficulty');
 
-// Defining variables in the script
+/**
+ * Defining variables in the script
+ */
 
 let result = 0;
 let miss = 0;
@@ -25,19 +28,22 @@ let randomAppearMin;
 let randomAppearMax;
 let difficulty = 'easy';
 
-// Eventlisteners
+/**
+ * Eventlisteners for:
+ * Changing difficulty level
+ * Start game when play button is clicked
+ * When how to play button is clicked a popup with rules is shown
+ * To close the popup window for the rules
+ */
 
 difficultyLevel.addEventListener('change', () => {
     difficulty = difficultyLevel.value;
 });
-
-playButton.addEventListener('click', playGame); // Start game when play button is clicked
-
-howToPlayButton.addEventListener('click', () => { // When how to play button is clicked a popup with rules is shown
+playButton.addEventListener('click', playGame);
+howToPlayButton.addEventListener('click', () => {
     howToPopup.style.display = 'flex';
 });
-
-popupClose.addEventListener('click', () => { // To close the popup window for the rules
+popupClose.addEventListener('click', () => {
     howToPopup.style.display = 'none';
 });
 
@@ -45,7 +51,9 @@ popupClose.addEventListener('click', () => { // To close the popup window for th
  * playGame function to only start the game when the 'play' button is clicked
  * variables updated for the game
  * to clear eventual existing timers the function clearInterval is also called
+ * different functions called only when the playGame function is called
  */
+
 function playGame() {
     clearInterval(timerId);
     clearInterval(timer);
@@ -66,6 +74,10 @@ function playGame() {
     moveMole();
 }
 
+/**
+ * Defines how the game is affected depending on what difficulty the player choose.
+ */
+
 function selectDifficulty() {
     if (difficulty === 'easy') {
         gameTime = 60;
@@ -83,12 +95,14 @@ function selectDifficulty() {
 }
 
 /**
- * First we remove any 'mole' in the grid,
+ * Checks if game is running, if not, then it wont perform the code.
+ * First we remove the classes 'mole' and 'hit' to remove existing moles.
  * then adding it in by choosing a random box to put the mole in,
- * then checking if we hit the random box the mole appear in
- * eventlistener to check for mouseclicks on existing mole and adding to hits
+ * then defining 'hitMole'
+ * calculating a random time for mole to appear
  * gameTime make the game only run as long as there is still time left
  */
+
 function randomBox() {
     if (gameTime <= 0) {
         gameRunning = false;
@@ -115,6 +129,7 @@ function randomBox() {
 /**
  * Display time left to play when the game is started
  */
+
 function updateTimeLeft() {
     clearInterval(timer);
     timer = setInterval(() => {
@@ -127,6 +142,10 @@ function updateTimeLeft() {
         }
     }, 1000);
 }
+
+/**
+ * Calculating score by checking for 'click' and what to do with it in 'clickHandler' function
+ */
 
 function calculateScore() {
     boxes.forEach(box => {
@@ -142,7 +161,7 @@ function clickHandler() {
         result++;
         hits.textContent = result;
         hitMole = null;
-        this.classList.add('hit');
+        this.classList.add('hit'); // Adding a functionality so it is visible that you hit the mole
     } else {
         miss++;
         misses.textContent = miss;
@@ -150,17 +169,21 @@ function clickHandler() {
     }
 }
 
-
-
-// Function to move the mole around automatically and clearing the timerId each time the play button is clicked
+/**
+ * Function to move the mole around automatically and clearing the timerId each time
+ */
 
 function moveMole() {
     clearInterval(timerId);
     timerId = setInterval(randomBox, randomAppear);
 }
 
+/**
+ * Creating a popup-window when game is finished with feedback, score and possibility to play again or close the window
+ * Also an overlay so the player cant accidentaly press a button behind popup
+ */
+
 function gameOver() {
-    // Creating the scorePopup window
     const scorePopup = document.createElement('div');
     scorePopup.classList.add('score-popup');
     scorePopup.classList.add('score-content');
@@ -188,19 +211,15 @@ function gameOver() {
             </div>
             `;
     document.body.appendChild(scorePopup);
-
-    // Creating the overlay
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
     document.body.appendChild(overlay);
-
     const playAgainButton = document.querySelector('#play-again');
     playAgainButton.addEventListener('click', () => {
         document.body.removeChild(scorePopup);
         document.body.removeChild(overlay);
         playGame(selectDifficulty);
     });
-
     const closeScoreButton = document.querySelector('#close-score');
     closeScoreButton.addEventListener('click', () => {
         document.body.removeChild(scorePopup);

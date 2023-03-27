@@ -3,11 +3,11 @@ Image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_sourc
 
 https://imgbin.com/png/mDH1BbQs/whac-a-mole-crappy-flappy-moles-android-video-game-png
 ## Introduction
+This is a Whack a Mole game where you can play a cool game of Whack-a-mole. It's made to be attractive for the user and provide some fun for both first time players and veterans. 
 
+[View the live project here](https://bjornrodin.github.io/whac-a-mole/)
 
-[View the live project here]()
-
-[Link to Github Repository]()
+[Link to Github Repository](https://github.com/BjornRodin/whac-a-mole)
 
 
 ![Am I Responsive?]()
@@ -56,7 +56,7 @@ https://imgbin.com/png/mDH1BbQs/whac-a-mole-crappy-flappy-moles-android-video-ga
 ## User Experience (UX)
 
 ### Introduction
-
+The goal for this website is to provide people with a fun game to spend some time but not having to invest hours upon hours of gametime. Play the game wherever you are and whenever you feel like it. You have three levels to chose between so if you are a new player or a veteran you should still find it challenging if you want to. 
 
 
 ### User Stories
