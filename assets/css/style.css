@@ -90,8 +90,9 @@ body>div {
     z-index: -1;
 }
 
-.hit {
-    background-image: url(../images/molefigurehit.png);
+.box.mole.hit::before {
+    background-image: url(../images/molefigure.png);
+    transform: rotate(-40deg);
 }
 
 /* End Mole-area */

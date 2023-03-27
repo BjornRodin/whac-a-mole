@@ -96,6 +96,7 @@ function randomBox() {
     }
     boxes.forEach(box => {
         box.classList.remove('mole');
+        box.classList.remove('hit');
     });
 
     let randomMole = boxes[Math.floor(Math.random() * 9)];
@@ -141,6 +142,7 @@ function clickHandler() {
         result++;
         hits.textContent = result;
         hitMole = null;
+        this.classList.add('hit');
     } else {
         miss++;
         misses.textContent = miss;
