@@ -9,7 +9,8 @@
     <meta name="keywords" content="whack a mole, whack-a-mole, hit the mole, game, webgame">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Whack-A-Mole</title>
-    <!-- Favicons -->
+
+    <!-- Favicons with the help of https://favicon.io/favicon-converter/ -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
@@ -19,13 +20,17 @@
 <body class="general-styling">
     <div>
         <h1 class="header">Whack-A-Mole</h1>
+
         <!-- Game info to show hits, misses and timer -->
+
         <div class="game-info">
             <p class="hits">Hits: <span id="hit"><strong>0</strong></span></p>
             <p class="misses">Misses: <span id="miss"><strong>0</strong></span></p>
             <p class="timer">Time: <span id="time"><strong>60</strong></span></p>
         </div>
+
         <!-- A grid for where the mole can appear, a game-area. -->
+
         <div class="mole-area">
             <div class="box" id="1"></div>
             <div class="box" id="2"></div>
@@ -37,7 +42,9 @@
             <div class="box" id="8"></div>
             <div class="box" id="9"></div>
         </div>
+
         <!-- The player can choose level of difficulty here with a dropdown-menu -->
+
         <div class="level-difficulty">
             <label class="difficulty" for="difficulty">Level of Difficulty</label>
             <select class="difficulty" name="difficulty" id="difficulty">
@@ -46,7 +53,9 @@
                 <option value="hard">Hard</option>
             </select>
         </div>
-        <!-- Game controls, read rules and start the game -->
+
+        <!-- Game controls, game rules and start the game -->
+
         <div class="control-area">
             <div id="how-to-popup">
                 <div id="popup-content">
@@ -68,9 +77,10 @@
             <div class="hidden-spacer"></div>
             <button class="button" id="play">Let's Play!</button>
         </div>
-        <!-- <p><a href="404.html">404.page</a></p> -->
     </div>
+
     <!-- Loading the JavaScript in the end of html to prioritise loading the content first -->
+
     <script src="assets/js/script.js"></script>
 </body>
 
