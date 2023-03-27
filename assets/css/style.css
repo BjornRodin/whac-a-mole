@@ -275,6 +275,7 @@ button:hover {
 
 .error-page {
     background-color: #d9ce3b;
+    width: 50%;
     top: 50%;
     position: absolute;
     left: 50%;
@@ -296,6 +297,8 @@ button:hover {
     font-family: "Alkatra", sans-serif;
     background-color: #F2D49B;
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .error-button:hover {
@@ -370,6 +373,11 @@ button:hover {
         font-size: 100%;
         min-width: 400px;
     }
+
+    .error-page {
+        width: 90%;
+        padding: 20px;
+    }
 }
 
 /* For screens up to 450px wide */
@@ -433,5 +441,9 @@ button:hover {
     #close-score {
         width: 120px;
         font-size: 100%;
+    }
+
+    .error-page {
+        font-size: 80%;
     }
 }
