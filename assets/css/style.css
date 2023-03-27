@@ -90,6 +90,10 @@ body>div {
     z-index: -1;
 }
 
+.hit {
+    background-image: url(../images/molefigurehit.png);
+}
+
 /* End Mole-area */
 
 /* Start difficulty area */
